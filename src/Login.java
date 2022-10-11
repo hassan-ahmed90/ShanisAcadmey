@@ -1,19 +1,13 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 public class Login extends JFrame implements ActionListener{
     JButton rules1, back;
     JTextField tfname;
     JTextArea textArea = new JTextArea();
-
-
     Login() {
         getContentPane().setBackground(new Color(0, 255, 255));
         getContentPane().setLayout(null);
-
-      //  ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/login.jpeg"));
 
         JLabel heading = new JLabel("Shani's Academy");
         heading.setBounds(181, 46, 425, 58);
@@ -52,7 +46,6 @@ public class Login extends JFrame implements ActionListener{
         lblNewLabel.setBounds(196, 248, 114, 20);
         getContentPane().add(lblNewLabel);
 
-
         textArea.setFont(new Font("Times New Roman", Font.BOLD, 18));
         textArea.setBounds(354, 245, 231, 22);
         getContentPane().add(textArea);
@@ -61,7 +54,6 @@ public class Login extends JFrame implements ActionListener{
         setLocation(200, 150);
         setVisible(true);
     }
-
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == rules1) {
             String name = tfname.getText();
@@ -71,15 +63,12 @@ public class Login extends JFrame implements ActionListener{
             Thread1 t = new Thread1();
             t.start();
 
-
         } else if (ae.getSource() == back) {
             setVisible(false);
 
         }
     }
-
     public static void main(String[] args) {
         new Login();
-
     }
 }

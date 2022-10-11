@@ -1,15 +1,9 @@
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
-
 public class Rules extends JFrame implements ActionListener{
-
     String name;
     JButton start, back;
-
     Rules(String name) {
         this.name = name;
         getContentPane().setBackground(new Color(0, 255, 255));
@@ -56,7 +50,6 @@ public class Rules extends JFrame implements ActionListener{
         setLocation(350, 100);
         setVisible(true);
     }
-
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == start) {
             setVisible(false);
@@ -66,7 +59,6 @@ public class Rules extends JFrame implements ActionListener{
             new Login();
         }
     }
-
     public static void main(String[] args) {
         new Rules("User");
     }
