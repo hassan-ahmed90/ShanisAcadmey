@@ -1,9 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 public class Physics extends JFrame implements ActionListener {
-
     String questions[][] = new String[10][5];
     String answers[][] = new String[10][2];
     String useranswers[][] = new String[10][1];
@@ -16,17 +14,12 @@ public class Physics extends JFrame implements ActionListener {
     public static int ans_given = 0;
     public static int count = 0;
     public static int score = 0;
-
     String name;
-
     Physics(String name) {
-
         this.name = name;
         setBounds(50, 0, 1481, 697);
         getContentPane().setBackground(new Color(128, 255, 255));
         getContentPane().setLayout(null);
-
-        //ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/quiz.jpg"));
 
         qno = new JLabel();
         qno.setBounds(69, 142, 50, 30);
@@ -165,10 +158,8 @@ public class Physics extends JFrame implements ActionListener {
         getContentPane().add(submit);
 
         start(count);
-
         setVisible(true);
     }
-
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == next) {
             repaint();
@@ -219,7 +210,6 @@ public class Physics extends JFrame implements ActionListener {
             new Score(name, score);
         }
     }
-
     public void paint(Graphics g) {
         super.paint(g);
 
@@ -232,7 +222,6 @@ public class Physics extends JFrame implements ActionListener {
         } else {
             g.drawString("Times up!!", 1100, 500);
         }
-
         timer--; // 14
 
         try {
@@ -284,7 +273,6 @@ public class Physics extends JFrame implements ActionListener {
         }
 
     }
-
     public void start(int count) {
         qno.setText("" + (count + 1) + ". ");
         question.setText(questions[count][0]);
@@ -302,7 +290,6 @@ public class Physics extends JFrame implements ActionListener {
 
         groupoptions.clearSelection();
     }
-
     public static void main(String[] args) {
         new Physics("User");
     }

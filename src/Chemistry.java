@@ -1,10 +1,7 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 public class Chemistry extends JFrame implements ActionListener {
-
     String questions[][] = new String[10][5];
     String answers[][] = new String[10][2];
     String useranswers[][] = new String[10][1];
@@ -17,9 +14,7 @@ public class Chemistry extends JFrame implements ActionListener {
     public static int ans_given = 0;
     public static int count = 0;
     public static int score = 0;
-
     String name;
-
     Chemistry(String name) {
 
         this.name = name;
@@ -166,10 +161,8 @@ public class Chemistry extends JFrame implements ActionListener {
         getContentPane().add(submit);
 
         start(count);
-
         setVisible(true);
     }
-
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == next) {
             repaint();
@@ -184,12 +177,10 @@ public class Chemistry extends JFrame implements ActionListener {
             } else {
                 useranswers[count][0] = groupoptions.getSelection().getActionCommand();
             }
-
             if (count == 8) {
                 next.setEnabled(false);
                 submit.setEnabled(true);
             }
-
             count++;
             start(count);
         } else if (ae.getSource() == lifeline) {
@@ -208,7 +199,6 @@ public class Chemistry extends JFrame implements ActionListener {
             } else {
                 useranswers[count][0] = groupoptions.getSelection().getActionCommand();
             }
-
             for (int i = 0; i < useranswers.length; i++) {
                 if (useranswers[i][0].equals(answers[i][1])) {
                     score += 10;
@@ -220,7 +210,6 @@ public class Chemistry extends JFrame implements ActionListener {
             new Score(name, score);
         }
     }
-
     public void paint(Graphics g) {
         super.paint(g);
 
@@ -233,16 +222,13 @@ public class Chemistry extends JFrame implements ActionListener {
         } else {
             g.drawString("Times up!!", 1100, 500);
         }
-
         timer--; // 14
-
         try {
             Thread.sleep(1000);
             repaint();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         if (ans_given == 1) {
             ans_given = 0;
             timer = 15;
@@ -263,7 +249,6 @@ public class Chemistry extends JFrame implements ActionListener {
                 } else {
                     useranswers[count][0] = groupoptions.getSelection().getActionCommand();
                 }
-
                 for (int i = 0; i < useranswers.length; i++) {
                     if (useranswers[i][0].equals(answers[i][1])) {
                         score += 10;
@@ -283,9 +268,7 @@ public class Chemistry extends JFrame implements ActionListener {
                 start(count);
             }
         }
-
     }
-
     public void start(int count) {
         qno.setText("" + (count + 1) + ". ");
         question.setText(questions[count][0]);
@@ -303,9 +286,7 @@ public class Chemistry extends JFrame implements ActionListener {
 
         groupoptions.clearSelection();
     }
-
     public static void main(String[] args) {
         new Chemistry("User");
-
     }
 }

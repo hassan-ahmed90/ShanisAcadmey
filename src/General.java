@@ -1,11 +1,7 @@
-
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
 public class General extends JFrame implements ActionListener {
-
     String questions[][] = new String[10][5];
     String answers[][] = new String[10][2];
     String useranswers[][] = new String[10][1];
@@ -13,22 +9,16 @@ public class General extends JFrame implements ActionListener {
     JRadioButton opt1, opt2, opt3, opt4;
     ButtonGroup groupoptions;
     JButton next, submit, lifeline;
-
     public static int timer = 15;
     public static int ans_given = 0;
     public static int count = 0;
     public static int score = 0;
-
     String name;
-
     General(String name) {
-
         this.name = name;
         setBounds(50, 0, 1481, 697);
         getContentPane().setBackground(new Color(0, 255, 255));
         getContentPane().setLayout(null);
-
-       // ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/quiz.jpg"));
 
         qno = new JLabel();
         qno.setBounds(69, 142, 50, 30);
@@ -111,7 +101,6 @@ public class General extends JFrame implements ActionListener {
         answers[8][1] = "Srilanka";
         answers[9][1] = "France";
 
-
         opt1 = new JRadioButton();
         opt1.setBounds(139, 221, 482, 30);
         opt1.setBackground(new Color(128, 255, 255));
@@ -168,10 +157,8 @@ public class General extends JFrame implements ActionListener {
         getContentPane().add(submit);
 
         start(count);
-
         setVisible(true);
     }
-
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == next) {
             repaint();
@@ -186,12 +173,10 @@ public class General extends JFrame implements ActionListener {
             } else {
                 useranswers[count][0] = groupoptions.getSelection().getActionCommand();
             }
-
             if (count == 8) {
                 next.setEnabled(false);
                 submit.setEnabled(true);
             }
-
             count++;
             start(count);
         } else if (ae.getSource() == lifeline) {
@@ -210,7 +195,6 @@ public class General extends JFrame implements ActionListener {
             } else {
                 useranswers[count][0] = groupoptions.getSelection().getActionCommand();
             }
-
             for (int i = 0; i < useranswers.length; i++) {
                 if (useranswers[i][0].equals(answers[i][1])) {
                     score += 10;
@@ -222,7 +206,6 @@ public class General extends JFrame implements ActionListener {
             new Score(name, score);
         }
     }
-
     public void paint(Graphics g) {
         super.paint(g);
 
@@ -285,9 +268,7 @@ public class General extends JFrame implements ActionListener {
                 start(count);
             }
         }
-
     }
-
     public void start(int count) {
         qno.setText("" + (count + 1) + ". ");
         question.setText(questions[count][0]);
@@ -305,7 +286,6 @@ public class General extends JFrame implements ActionListener {
 
         groupoptions.clearSelection();
     }
-
     public static void main(String[] args) {
         new General("User");
     }
