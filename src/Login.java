@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class Login extends JFrame implements ActionListener{
-    JButton rules1, back;
+    JButton next, back;
     JTextField tfname;
     JTextArea textArea = new JTextArea();
     Login() {
@@ -26,12 +26,12 @@ public class Login extends JFrame implements ActionListener{
         tfname.setFont(new Font("Times New Roman", Font.BOLD, 20));
         getContentPane().add(tfname);
 
-        rules1 = new JButton("NEXT");
-        rules1.setBounds(429, 363, 120, 45);
-        rules1.setBackground(new Color(0, 0, 128));
-        rules1.setForeground(Color.WHITE);
-        rules1.addActionListener(this);
-        getContentPane().add(rules1);
+        next = new JButton("NEXT");
+        next.setBounds(429, 363, 120, 45);
+        next.setBackground(new Color(0, 0, 128));
+        next.setForeground(Color.WHITE);
+        next.addActionListener(this);
+        getContentPane().add(next);
 
         back = new JButton("CLOSE");
         back.setBounds(168, 363, 120, 45);
@@ -55,9 +55,7 @@ public class Login extends JFrame implements ActionListener{
         setVisible(true);
     }
     public void actionPerformed(ActionEvent ae) {
-        if (ae.getSource() == rules1) {
-            String name = tfname.getText();
-            String roll=textArea.getText();
+        if (ae.getSource() == next) {
 
             setVisible(false);
             Thread1 t = new Thread1();

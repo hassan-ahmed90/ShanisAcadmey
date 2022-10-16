@@ -261,7 +261,7 @@ public class Physics extends JFrame implements ActionListener {
                 }
                 setVisible(false);
                 new Score( score);
-            } else { // next button
+            } else {
                 if (groupoptions.getSelection() == null) {
                     useranswers[count] = "";
                 } else {

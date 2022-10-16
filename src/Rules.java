@@ -2,10 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class Rules extends JFrame implements ActionListener{
-    String name;
     JButton start, back;
     Rules() {
-
         getContentPane().setBackground(new Color(0, 255, 255));
         getContentPane().setLayout(null);
 
@@ -25,11 +23,12 @@ public class Rules extends JFrame implements ActionListener{
                         "3. Each mcqs has 10 marks" + "<br><br>" +
                         "4. You have 15 second for each question" + "<br><br>" +
                         "5. Only a fool asks and a wise answers (Be wise, not otherwise)" + "<br><br>" +
-                        "6. Do not get nervous if your friend is answering more questions, may be he/she is doing Jai Mata Di" + "<br><br>" +
-                        "7. Brace yourself, this paper is not for the faint hearted" + "<br><br>" +
+                        "6. Do not get nervous if your friend is answering more questions, may be he/she is doing De dana dan dan" + "<br><br>" +
+                        "7. Paper is for backbenchers" + "<br><br>" +
                         "8. May you know more than what Bill Gates knows, Good Luck" + "<br><br>" +
                         "<html>"
         );
+
         getContentPane().add(rules);
 
         back = new JButton("Back");

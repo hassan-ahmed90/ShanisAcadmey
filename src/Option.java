@@ -8,10 +8,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 
 public class Option {
-    private JFrame frame;
-    /**
-     * Launch the application.
-     */
+     JFrame frame;
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -24,17 +21,9 @@ public class Option {
             }
         });
     }
-
-    /**
-     * Create the application.
-     */
     public Option() {
         initialize();
     }
-
-    /**
-     * Initialize the contents of the frame.
-     */
     private void initialize() {
         frame = new JFrame();
         frame.getContentPane().setBackground(new Color(0, 255, 255));

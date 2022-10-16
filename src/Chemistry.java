@@ -17,12 +17,9 @@ public class Chemistry extends JFrame implements ActionListener {
     String name;
     Chemistry() {
 
-
         setBounds(50, 0, 1481, 697);
         getContentPane().setBackground(new Color(128, 255, 255));
         getContentPane().setLayout(null);
-
-       // ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/quiz.jpg"));
 
         qno = new JLabel();
         qno.setBounds(69, 142, 50, 30);
