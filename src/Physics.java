@@ -8,7 +8,7 @@ public class Physics extends JFrame implements ActionListener {
     JLabel qno, question;
     JRadioButton opt1, opt2, opt3, opt4;
     ButtonGroup groupoptions;
-    JButton next, submit, lifeline;
+    JButton next, submit, hint;
 
     int timer = 15;
   int ans_given = 0;
@@ -140,13 +140,13 @@ public class Physics extends JFrame implements ActionListener {
         next.addActionListener(this);
         getContentPane().add(next);
 
-        lifeline = new JButton("Lifeline");
-        lifeline.setBounds(779, 328, 200, 40);
-        lifeline.setFont(new Font("Tahoma", Font.PLAIN, 22));
-        lifeline.setBackground(new Color(30, 144, 255));
-        lifeline.setForeground(Color.WHITE);
-        lifeline.addActionListener(this);
-        getContentPane().add(lifeline);
+        hint = new JButton("Lifeline");
+        hint.setBounds(779, 328, 200, 40);
+        hint.setFont(new Font("Tahoma", Font.PLAIN, 22));
+        hint.setBackground(new Color(30, 144, 255));
+        hint.setForeground(Color.WHITE);
+        hint.addActionListener(this);
+        getContentPane().add(hint);
 
         submit = new JButton("Submit");
         submit.setBounds(779, 435, 200, 40);
@@ -182,7 +182,7 @@ public class Physics extends JFrame implements ActionListener {
 
             count++;
             start(count);
-        } else if (ae.getSource() == lifeline) {
+        } else if (ae.getSource() == hint) {
             if (count == 2 || count == 4 || count == 6 || count == 8 || count == 9) {
                 opt2.setEnabled(false);
                 opt3.setEnabled(false);
@@ -190,7 +190,7 @@ public class Physics extends JFrame implements ActionListener {
                 opt1.setEnabled(false);
                 opt4.setEnabled(false);
             }
-            lifeline.setEnabled(false);
+            hint.setEnabled(false);
         } else if (ae.getSource() == submit) {
             ans_given = 1;
             if (groupoptions.getSelection() == null) {

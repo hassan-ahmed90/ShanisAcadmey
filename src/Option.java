@@ -52,7 +52,6 @@ public class Option {
         JButton btnNewButton_2 = new JButton("General Knowlegde");
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String name = null;
                 new General();
             }
         });
