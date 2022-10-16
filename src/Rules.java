@@ -4,8 +4,8 @@ import java.awt.event.*;
 public class Rules extends JFrame implements ActionListener{
     String name;
     JButton start, back;
-    Rules(String name) {
-        this.name = name;
+    Rules() {
+
         getContentPane().setBackground(new Color(0, 255, 255));
         getContentPane().setLayout(null);
 
@@ -60,6 +60,6 @@ public class Rules extends JFrame implements ActionListener{
         }
     }
     public static void main(String[] args) {
-        new Rules("User");
+        new Rules();
     }
 }

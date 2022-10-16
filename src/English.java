@@ -6,23 +6,21 @@ import java.awt.event.*;
 public class English extends JFrame implements ActionListener {
 
     String questions[][] = new String[10][5];
-    String answers[][] = new String[10][2];
-    String useranswers[][] = new String[10][1];
+    String answers[]= new String[10];
+    String useranswers[] = new String[10];
     JLabel qno, question;
     JRadioButton opt1, opt2, opt3, opt4;
     ButtonGroup groupoptions;
-    JButton next, submit, lifeline;
+    JButton next, submit, hint;
 
-    public static int timer = 15;
-    public static int ans_given = 0;
-    public static int count = 0;
-    public static int score = 0;
+     int timer = 15;
+     int ans_given = 0;
+   int count = 0;
+     int score = 0;
 
     String name;
 
-    English(String name) {
-
-        this.name = name;
+    English() {
         setBounds(50, 0, 1481, 697);
         getContentPane().setBackground(new Color(128, 255, 255));
         getContentPane().setLayout(null);
@@ -99,16 +97,16 @@ public class English extends JFrame implements ActionListener {
         questions[9][3] = "Onjective";
         questions[9][4] = "NOT";
 
-        answers[0][1] = "";
-        answers[1][1] = "follow";
-        answers[2][1] = "Generosity";
-        answers[3][1] = "turn";
-        answers[4][1] = "fragnent";
-        answers[5][1] = "consonent";
-        answers[6][1] = "import";
-        answers[7][1] = "Money";
-        answers[8][1] = "came";
-        answers[9][1] = "Purpose";
+        answers[0] = "";
+        answers[1] = "follow";
+        answers[2] = "Generosity";
+        answers[3] = "turn";
+        answers[4] = "fragnent";
+        answers[5] = "consonent";
+        answers[6] = "import";
+        answers[7] = "Money";
+        answers[8] = "came";
+        answers[9] = "Purpose";
 
         opt1 = new JRadioButton();
         opt1.setBounds(139, 221, 558, 30);
@@ -148,13 +146,13 @@ public class English extends JFrame implements ActionListener {
         next.addActionListener(this);
         getContentPane().add(next);
 
-        lifeline = new JButton("Lifeline");
-        lifeline.setBounds(779, 328, 200, 40);
-        lifeline.setFont(new Font("Tahoma", Font.PLAIN, 22));
-        lifeline.setBackground(new Color(30, 144, 255));
-        lifeline.setForeground(Color.WHITE);
-        lifeline.addActionListener(this);
-        getContentPane().add(lifeline);
+        hint = new JButton("HINT");
+        hint.setBounds(779, 328, 200, 40);
+        hint.setFont(new Font("Tahoma", Font.PLAIN, 22));
+        hint.setBackground(new Color(30, 144, 255));
+        hint.setForeground(Color.WHITE);
+        hint.addActionListener(this);
+        getContentPane().add(hint);
 
         submit = new JButton("Submit");
         submit.setBounds(779, 435, 200, 40);
@@ -180,9 +178,9 @@ public class English extends JFrame implements ActionListener {
 
             ans_given = 1;
             if (groupoptions.getSelection() == null) {
-                useranswers[count][0] = "";
+                useranswers[count] = "";
             } else {
-                useranswers[count][0] = groupoptions.getSelection().getActionCommand();
+                useranswers[count]= groupoptions.getSelection().getActionCommand();
             }
 
             if (count == 8) {
@@ -192,7 +190,7 @@ public class English extends JFrame implements ActionListener {
 
             count++;
             start(count);
-        } else if (ae.getSource() == lifeline) {
+        } else if (ae.getSource() == hint) {
             if (count == 2 || count == 4 || count == 6 || count == 8 || count == 9) {
                 opt2.setEnabled(false);
                 opt3.setEnabled(false);
@@ -200,24 +198,23 @@ public class English extends JFrame implements ActionListener {
                 opt1.setEnabled(false);
                 opt4.setEnabled(false);
             }
-            lifeline.setEnabled(false);
+            hint.setEnabled(false);
         } else if (ae.getSource() == submit) {
             ans_given = 1;
             if (groupoptions.getSelection() == null) {
-                useranswers[count][0] = "";
+                useranswers[count]= "";
             } else {
-                useranswers[count][0] = groupoptions.getSelection().getActionCommand();
+                useranswers[count] = groupoptions.getSelection().getActionCommand();
             }
-
             for (int i = 0; i < useranswers.length; i++) {
-                if (useranswers[i][0].equals(answers[i][1])) {
+                if (useranswers[i].equals(answers[i])) {
                     score += 10;
                 } else {
                     score += 0;
                 }
             }
             setVisible(false);
-            new Score(name, score);
+            new Score( score);
         }
     }
 
@@ -259,25 +256,25 @@ public class English extends JFrame implements ActionListener {
             }
             if (count == 9) { // submit button
                 if (groupoptions.getSelection() == null) {
-                    useranswers[count][0] = "";
+                    useranswers[count]= "";
                 } else {
-                    useranswers[count][0] = groupoptions.getSelection().getActionCommand();
+                    useranswers[count] = groupoptions.getSelection().getActionCommand();
                 }
 
                 for (int i = 0; i < useranswers.length; i++) {
-                    if (useranswers[i][0].equals(answers[i][1])) {
+                    if (useranswers[i].equals(answers[i])) {
                         score += 10;
                     } else {
                         score += 0;
                     }
                 }
                 setVisible(false);
-                new Score(name, score);
+                new Score( score);
             } else { // next button
                 if (groupoptions.getSelection() == null) {
-                    useranswers[count][0] = "";
+                    useranswers[count] = "";
                 } else {
-                    useranswers[count][0] = groupoptions.getSelection().getActionCommand();
+                    useranswers[count] = groupoptions.getSelection().getActionCommand();
                 }
                 count++; // 0 // 1
                 start(count);
@@ -305,6 +302,6 @@ public class English extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new English("User");
+        new English();
     }
 }

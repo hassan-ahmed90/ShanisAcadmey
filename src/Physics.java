@@ -3,20 +3,20 @@ import java.awt.*;
 import java.awt.event.*;
 public class Physics extends JFrame implements ActionListener {
     String questions[][] = new String[10][5];
-    String answers[][] = new String[10][2];
-    String useranswers[][] = new String[10][1];
+    String answers[]= new String[10];
+    String useranswers[]= new String[10];
     JLabel qno, question;
     JRadioButton opt1, opt2, opt3, opt4;
     ButtonGroup groupoptions;
     JButton next, submit, lifeline;
 
-    public static int timer = 15;
-    public static int ans_given = 0;
-    public static int count = 0;
-    public static int score = 0;
+    int timer = 15;
+  int ans_given = 0;
+    int count = 0;
+  int score = 0;
     String name;
-    Physics(String name) {
-        this.name = name;
+    Physics() {
+
         setBounds(50, 0, 1481, 697);
         getContentPane().setBackground(new Color(128, 255, 255));
         getContentPane().setLayout(null);
@@ -91,16 +91,16 @@ public class Physics extends JFrame implements ActionListener {
         questions[9][3] = "3rd Law";
         questions[9][4] = "NOT";
 
-        answers[0][1] = "0";
-        answers[1][1] = "displacemnt";
-        answers[2][1] = "mass";
-        answers[3][1] = "force";
-        answers[4][1] = "straight line";
-        answers[5][1] = "1.2m";
-        answers[6][1] = "45";
-        answers[7][1] = "imples";
-        answers[8][1] = "acceleration";
-        answers[9][1] = "1st law";
+        answers[0] = "0";
+        answers[1] = "displacemnt";
+        answers[2] = "mass";
+        answers[3] = "force";
+        answers[4] = "straight line";
+        answers[5] = "1.2m";
+        answers[6] = "45";
+        answers[7] = "imples";
+        answers[8] = "acceleration";
+        answers[9] = "1st law";
 
         opt1 = new JRadioButton();
         opt1.setBounds(139, 221, 558, 30);
@@ -170,9 +170,9 @@ public class Physics extends JFrame implements ActionListener {
 
             ans_given = 1;
             if (groupoptions.getSelection() == null) {
-                useranswers[count][0] = "";
+                useranswers[count] = "";
             } else {
-                useranswers[count][0] = groupoptions.getSelection().getActionCommand();
+                useranswers[count] = groupoptions.getSelection().getActionCommand();
             }
 
             if (count == 8) {
@@ -194,20 +194,20 @@ public class Physics extends JFrame implements ActionListener {
         } else if (ae.getSource() == submit) {
             ans_given = 1;
             if (groupoptions.getSelection() == null) {
-                useranswers[count][0] = "";
+                useranswers[count] = "";
             } else {
-                useranswers[count][0] = groupoptions.getSelection().getActionCommand();
+                useranswers[count] = groupoptions.getSelection().getActionCommand();
             }
 
             for (int i = 0; i < useranswers.length; i++) {
-                if (useranswers[i][0].equals(answers[i][1])) {
+                if (useranswers[i].equals(answers[i])) {
                     score += 10;
                 } else {
                     score += 0;
                 }
             }
             setVisible(false);
-            new Score(name, score);
+            new Score(score);
         }
     }
     public void paint(Graphics g) {
@@ -247,25 +247,25 @@ public class Physics extends JFrame implements ActionListener {
             }
             if (count == 9) { // submit button
                 if (groupoptions.getSelection() == null) {
-                    useranswers[count][0] = "";
+                    useranswers[count] = "";
                 } else {
-                    useranswers[count][0] = groupoptions.getSelection().getActionCommand();
+                    useranswers[count] = groupoptions.getSelection().getActionCommand();
                 }
 
                 for (int i = 0; i < useranswers.length; i++) {
-                    if (useranswers[i][0].equals(answers[i][1])) {
+                    if (useranswers[i].equals(answers[i])) {
                         score += 10;
                     } else {
                         score += 0;
                     }
                 }
                 setVisible(false);
-                new Score(name, score);
+                new Score( score);
             } else { // next button
                 if (groupoptions.getSelection() == null) {
-                    useranswers[count][0] = "";
+                    useranswers[count] = "";
                 } else {
-                    useranswers[count][0] = groupoptions.getSelection().getActionCommand();
+                    useranswers[count] = groupoptions.getSelection().getActionCommand();
                 }
                 count++; // 0 // 1
                 start(count);
@@ -291,6 +291,6 @@ public class Physics extends JFrame implements ActionListener {
         groupoptions.clearSelection();
     }
     public static void main(String[] args) {
-        new Physics("User");
+        new Physics();
     }
 }

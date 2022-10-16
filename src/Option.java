@@ -45,7 +45,7 @@ public class Option {
         JButton btnNewButton = new JButton("PHYSICS");
         btnNewButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new Physics(null);
+                new Physics();
             }
         });
         btnNewButton.setBounds(176, 181, 160, 57);
@@ -54,7 +54,7 @@ public class Option {
         JButton btnNewButton_1 = new JButton("CHEMISTRY");
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new Chemistry(null);
+                new Chemistry();
             }
         });
         btnNewButton_1.setBounds(418, 181, 139, 57);
@@ -64,7 +64,7 @@ public class Option {
         btnNewButton_2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String name = null;
-                new General(name);
+                new General();
             }
         });
         btnNewButton_2.setBounds(176, 293, 160, 62);
@@ -73,7 +73,7 @@ public class Option {
         JButton btnNewButton_3 = new JButton("ENGLISH");
         btnNewButton_3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new English(null);
+                new English();
             }
         });
         btnNewButton_3.setBounds(418, 293, 139, 57);

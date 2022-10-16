@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 public class Score extends JFrame implements ActionListener {
-    Score(String name, int score) {
+    Score(int score) {
         setBounds(400, 150, 750, 550);
         getContentPane().setBackground(new Color(0, 255, 255));
         getContentPane().setLayout(null);
@@ -52,6 +52,6 @@ public class Score extends JFrame implements ActionListener {
         new Login();
     }
     public static void main(String[] args) {
-        new Score("User", 0);
+        new Score(0);
     }
 }
